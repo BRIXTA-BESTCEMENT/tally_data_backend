@@ -8,6 +8,13 @@
       "when": 1771838010973,
       "tag": "0000_fast_frog_thor",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1771845851678,
+      "tag": "0001_mysterious_silverclaw",
+      "breakpoints": true
     }
   ]
 }
