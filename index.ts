@@ -6,12 +6,14 @@ import { createServer } from 'http';
 
 // Import Get routes
 import setupTallyRawGetRoutes from './src/routes/getRoutes/tallyRaw';
+import setupTallyDealersGetRoutes from './src/routes/getRoutes/tallyDealers';
 import setupDestinationListGetRoutes from './src/routes/getRoutes/destinationList';
 import setupFreightListGetRoutes from './src/routes/getRoutes/freightList';
 import setupSalesRegisterGetRoutes from './src/routes/getRoutes/salesRegister';
 
 // Import Post routes
 import setupTallyRawPostRoutes from './src/routes/postRoutes/tallyRaw';
+import setupTallyDealersPostRoutes from './src/routes/postRoutes/tallyDealers';
 import setupDestinationListPostRoutes from './src/routes/postRoutes/destinationList';
 import setupFreightListPostRoutes from './src/routes/postRoutes/freightList';
 import setupSalesRegisterPostRoutes from './src/routes/postRoutes/salesRegister';
@@ -37,21 +39,19 @@ app.get('/health', (req: Request, res: Response) => {
   });
 });
 
-/* import { startGrpcServer } from './src/grpc/grpc-server';
-   startGrpcServer();
-*/
-
 // Create HTTP Server
 const server = createServer(app);
 
 // Initialize Get Routes
 setupTallyRawGetRoutes(app);
+setupTallyDealersGetRoutes(app);
 setupDestinationListGetRoutes(app);
 setupFreightListGetRoutes(app);
 setupSalesRegisterGetRoutes(app);
 
 // Initialize Post Routes
 setupTallyRawPostRoutes(app);
+setupTallyDealersPostRoutes(app);
 setupDestinationListPostRoutes(app);
 setupFreightListPostRoutes(app);
 setupSalesRegisterPostRoutes(app);

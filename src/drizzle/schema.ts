@@ -10,6 +10,61 @@ export const tallyRaw = pgTable("tally_raw", {
 	syncedAt: timestamp("synced_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
 });
 
+export const tallyDealers = pgTable("tally_dealers", {
+  id: uuid("id").defaultRandom().primaryKey().notNull(),
+  institution: varchar("institution", { length: 10 }), // 'JSB' or 'JUD'
+  
+  name: varchar("name", { length: 255 }),
+  alias: varchar("alias", { length: 255 }),
+  
+  address1: text("address1"),
+  address2: text("address2"),
+  address3: text("address3"),
+  address4: text("address4"),
+  address5: text("address5"),
+  
+  billWiseDetails: text("bill_wise_details"),
+  phone: varchar("phone", { length: 100 }),
+  mobile: varchar("mobile", { length: 100 }),
+  email: varchar("email", { length: 255 }),
+  
+  group1: varchar("group1", { length: 255 }),
+  group2: varchar("group2", { length: 255 }),
+  group3: varchar("group3", { length: 255 }),
+  group4: varchar("group4", { length: 255 }),
+  
+  pan: varchar("pan", { length: 50 }),
+  tin: varchar("tin", { length: 50 }),
+  cst: varchar("cst", { length: 50 }),
+  crLimit: numeric("cr_limit", { precision: 14, scale: 2 }), // Credit Limit
+  
+  contactPerson: varchar("contact_person", { length: 255 }),
+  state: varchar("state", { length: 100 }),
+  pincode: varchar("pincode", { length: 20 }),
+  
+  gstRegType: varchar("gst_reg_type", { length: 100 }),
+  gstNo: varchar("gst_no", { length: 50 }),
+  
+  listOfLedger: text("list_of_ledger"),
+  sdLedger: text("sd_ledger"),
+  
+  salesmanName: varchar("salesman_name", { length: 255 }),
+  salesPromoter: varchar("sales_promoter", { length: 255 }),
+  securityBlankCheckNo: varchar("security_blank_check_no", { length: 100 }),
+  
+  destination: varchar("destination", { length: 255 }),
+  district: varchar("district", { length: 255 }),
+  zone: varchar("zone", { length: 255 }),
+
+  createdAt: timestamp("created_at", { precision: 6, withTimezone: true, mode: 'string' }).defaultNow(),
+  updatedAt: timestamp("updated_at", { precision: 6, withTimezone: true, mode: 'string' }).defaultNow(),
+}, (table) => [
+  index("idx_tally_dealers_inst").using("btree", table.institution.asc().nullsLast()),
+  index("idx_tally_dealers_name").using("btree", table.name.asc().nullsLast()),
+  index("idx_tally_dealers_mobile").using("btree", table.mobile.asc().nullsLast()),
+  index("idx_tally_dealers_gst").using("btree", table.gstNo.asc().nullsLast()),
+]);
+
 export const freightList = pgTable("freight_list", {
   id: uuid("id").defaultRandom().primaryKey().notNull(),
   institution: varchar("institution", { length: 10 }), 
@@ -152,6 +207,7 @@ export const salesRegister = pgTable("sales_register", {
 /* ================================= XXXXXXXXXXX ================================ */
 
 export const insertTallyRawTableSchema = createInsertSchema(tallyRaw);
+export const insertTallyDealersSchema = createInsertSchema(tallyDealers);
 export const insertFreightListSchema = createInsertSchema(freightList);
 export const insertDestinationListSchema = createInsertSchema(destinationList);
 export const insertSalesRegisterSchema = createInsertSchema(salesRegister);
@@ -161,6 +217,7 @@ export const insertSalesRegisterSchema = createInsertSchema(salesRegister);
 /* ================================= XXXXXXXXXXX ================================ */
 
 export const selectTallyRawTableSchema = createSelectSchema(tallyRaw);
+export const selectTallyDealersSchema = createSelectSchema(tallyDealers);
 export const selectFreightListSchema = createSelectSchema(freightList);
 export const selectDestinationListSchema = createSelectSchema(destinationList);
 export const selectSalesRegisterSchema = createSelectSchema(salesRegister);
