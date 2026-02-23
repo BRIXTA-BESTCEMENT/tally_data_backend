@@ -1,0 +1,10 @@
+node_modules
+node_modules/
+.env
+.env.*
+count:0
+count:*
+dist
+dist/
+service-account.json
+.vscode
