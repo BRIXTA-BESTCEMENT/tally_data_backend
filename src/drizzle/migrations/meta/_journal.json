@@ -22,6 +22,13 @@
       "when": 1771852890678,
       "tag": "0002_smart_hiroim",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1771922181054,
+      "tag": "0003_fearless_warbird",
+      "breakpoints": true
     }
   ]
 }

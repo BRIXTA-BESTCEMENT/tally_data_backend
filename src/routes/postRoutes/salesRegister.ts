@@ -119,6 +119,7 @@ export default function setupSalesRegisterPostRoutes(app: Express) {
                 salesNagaland: getValNum(row, ['Sales (Nagaland)', 'salesNagaland', 'sales_nagaland']),
                 salesArunachal: getValNum(row, ['Sales (Arunachal)', 'salesArunachal', 'sales_arunachal']),
                 salesTripura: getValNum(row, ['Sales (Tripura)', 'salesTripura', 'sales_tripura']),
+                salesManipur: getValNum(row, ['Sales (Manipur)', 'salesManipur', 'sales_manipur']),
             }));
 
             // Optional: Insert in chunks if data is massive

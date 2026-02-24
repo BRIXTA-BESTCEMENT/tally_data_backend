@@ -1,0 +1,1 @@
+ALTER TABLE "sales_register" ADD COLUMN "sales_manipur" numeric(14, 2);

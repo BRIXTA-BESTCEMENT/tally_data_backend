@@ -193,6 +193,7 @@ export const salesRegister = pgTable("sales_register", {
   salesNagaland: numeric("sales_nagaland", { precision: 14, scale: 2 }),
   salesArunachal: numeric("sales_arunachal", { precision: 14, scale: 2 }),
   salesTripura: numeric("sales_tripura", { precision: 14, scale: 2 }),
+  salesManipur: numeric("sales_manipur", { precision: 14, scale: 2 }),
 
   createdAt: timestamp("created_at", { precision: 6, withTimezone: true, mode: 'string' }).defaultNow(),
   updatedAt: timestamp("updated_at", { precision: 6, withTimezone: true, mode: 'string' }).defaultNow(),
